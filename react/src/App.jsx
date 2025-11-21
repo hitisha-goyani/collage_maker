@@ -134,49 +134,81 @@ const removeSelected = () => {
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-6">
 
         {/* LEFT SIDEBAR ------------------------------------------------------ */}
-        <aside className="lg:col-span-3 bg-white p-5 rounded-3xl shadow-lg">
-          <h2 className="text-xl font-semibold mb-3">Templates</h2>
+        {/* <aside className="lg:col-span-3 panel">
+  <h2 className="heading mb-4">✨ Templates</h2>
 
-          <TemplateList
-            templates={TEMPLATES}
-            activeTemplateId={activeTemplate.id}
-            activeCategory={category}
-            onSelectCategory={setCategory}
-            onSelectTemplate={(templateId) => {
-              const tpl = TEMPLATES.find((t) => t.id === templateId);
-              if (tpl) setActiveTemplate(tpl);
-            }}
-          />
+  <TemplateList
+    templates={TEMPLATES}
+    activeTemplateId={activeTemplate.id}
+    activeCategory={category}
+    onSelectCategory={setCategory}
+    onSelectTemplate={(templateId) => {
+      const tpl = TEMPLATES.find((t) => t.id === templateId);
+      if (tpl) setActiveTemplate(tpl);
+    }}
+  />
 
-          <hr className="my-4" />
+  <hr className="my-5 border-gray-300" />
 
-          {/* Export */}
-          <div className="flex gap-3">
-            <button className="btn w-full" onClick={() => exportStageAsImage(stageRef, "png")}>
-              PNG
-            </button>
-            <button className="btn w-full" onClick={() => exportStageAsImage(stageRef, "jpeg")}>
-              JPEG
-            </button>
-          </div>
+  <div className="flex gap-3">
+    <button className="btn w-full" onClick={() => exportStageAsImage(stageRef, "png")}>
+      Export PNG
+    </button>
 
-          {/* Text / Remove */}
-        <div className="flex gap-3 mt-4">
-  <button className="btn w-full" onClick={addText}>
-    Add Text
-  </button>
+    <button className="btn w-full" onClick={() => exportStageAsImage(stageRef, "jpeg")}>
+      Export JPG
+    </button>
+  </div>
 
-  <button
-    className={`btn w-full ${
-      selectedId ? "bg-red-500 text-white" : "bg-gray-300 cursor-not-allowed"
-    }`}
-    disabled={!selectedId}
-    onClick={removeSelected}
-  >
-    Remove
-  </button>
-</div>
-        </aside>
+  <div className="flex gap-3 mt-4">
+    <button className="btn-secondary w-full" onClick={addText}>
+       Add Text
+    </button>
+
+    <button
+      className={`btn w-full ${selectedId ? "bg-red-500 hover:bg-red-600" : "bg-gray-300 cursor-not-allowed"}`}
+      disabled={!selectedId}
+      onClick={removeSelected}
+    >
+       Remove
+    </button>
+  </div>
+</aside> */}
+<aside className="lg:col-span-2 bg-white p-4 rounded-3xl shadow-lg flex flex-col gap-4">
+
+  {/* ICON MENU */}
+  <div className="space-y-1">
+    {[
+      { name: "Layout", icon: "📐" },
+      { name: "Ratio", icon: "🔳" },
+      { name: "Image", icon: "🖼️" },
+      { name: "Background", icon: "🎨" },
+      { name: "Sticker", icon: "🔖" },
+      { name: "Text", icon: "✏️" },
+      { name: "AI Layout", icon: "✨" },
+    ].map((item) => (
+      <div key={item.name} className="sidebar-btn">
+        <span className="text-xl">{item.icon}</span>
+        <span>{item.name}</span>
+      </div>
+    ))}
+  </div>
+
+  {/* TEMPLATE SECTION */}
+  <h2 className="text-lg font-semibold mt-3">Templates</h2>
+  <TemplateList
+    templates={TEMPLATES}
+    activeTemplateId={activeTemplate.id}
+    activeCategory={category}
+    onSelectCategory={setCategory}
+    onSelectTemplate={(templateId) => {
+      const tpl = TEMPLATES.find((t) => t.id === templateId);
+      if (tpl) setActiveTemplate(tpl);
+    }}
+  />
+</aside>
+
+
 
         {/* CANVAS ----------------------------------------------------------- */}
         <main className="lg:col-span-6 bg-white p-6 rounded-3xl shadow-xl flex items-center justify-center">

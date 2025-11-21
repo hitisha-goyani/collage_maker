@@ -1,5 +1,37 @@
 @import "tailwindcss";
 
-.btn { 
-  @apply bg-indigo-600 text-white px-3 py-2 rounded-lg shadow hover:brightness-90 transition;
+.btn {
+  @apply py-2 px-4 rounded-xl font-semibold transition-all
+         bg-indigo-500 text-white shadow-md hover:bg-indigo-600
+         active:scale-95;
+}
+
+.btn-secondary {
+  @apply py-2 px-4 rounded-xl border border-gray-300
+         bg-white hover:bg-gray-100 shadow-sm transition;
+}
+
+.panel {
+  @apply bg-white/70 backdrop-blur-xl border border-white/40
+         rounded-3xl shadow-xl p-5;
+}
+
+.heading {
+  @apply text-xl font-bold text-gray-800 tracking-wide pb-1;
+}
+
+.slider {
+  @apply w-full accent-indigo-500 cursor-pointer;
+}
+body {
+  background: #f2f5ff;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn {
+  @apply px-4 py-2 rounded-xl font-medium bg-indigo-600 text-white hover:bg-indigo-700 transition-all;
+}
+
+.sidebar-btn {
+  @apply w-full text-left px-4 py-3 flex items-center gap-3 rounded-xl hover:bg-gray-100 cursor-pointer transition;
 }

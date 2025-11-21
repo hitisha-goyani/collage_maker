@@ -133,92 +133,29 @@ export default function PropertiesPanel({
 
           {/* Content */}
           <label className="text-sm text-gray-700">Text</label>
-          <input
-            className="w-full border rounded px-2 py-1 mt-1 mb-3"
-            value={txt.text}
-            onChange={(e) => updateText(txt.id, { text: e.target.value })}
-          />
-
-          {/* Font size */}
-          <label className="text-sm text-gray-700">Font Size</label>
-          <input
-            type="number"
-            className="w-full border rounded px-2 py-1 mt-1 mb-3"
-            value={txt.fontSize}
-            onChange={(e) =>
-              updateText(txt.id, { fontSize: Number(e.target.value) })
-            }
-          />
-
-          {/* Color */}
-          <label className="text-sm text-gray-700">Color</label>
-          <input
-            type="color"
-            className="mt-2 mb-3"
-            value={txt.fill}
-            onChange={(e) => updateText(txt.id, { fill: e.target.value })}
-          />
-
-          <label className="block text-sm">Brightness</label>
 <input
-  type="range"
-  min="-1"
-  max="1"
-  step="0.05"
-  value={img.brightness}
-  onChange={(e) => updateImage(img.id, { brightness: Number(e.target.value) })}
+  className="w-full border rounded px-2 py-1 mt-1 mb-3"
+  value={txt.text}
+  onChange={(e) => updateText(txt.id, { text: e.target.value })}
 />
 
-<label className="block text-sm mt-2">Contrast</label>
+<label className="text-sm text-gray-700">Font Size</label>
 <input
-  type="range"
-  min="-1"
-  max="1"
-  step="0.05"
-  value={img.contrast}
-  onChange={(e) => updateImage(img.id, { contrast: Number(e.target.value) })}
+  type="number"
+  className="w-full border rounded px-2 py-1 mt-1 mb-3"
+  value={txt.fontSize}
+  onChange={(e) => updateText(txt.id, { fontSize: Number(e.target.value) })}
 />
 
-<label className="block text-sm mt-2">Saturation</label>
+<label className="text-sm text-gray-700">Color</label>
 <input
-  type="range"
-  min="-1"
-  max="1"
-  step="0.05"
-  value={img.saturation}
-  onChange={(e) =>
-    updateImage(img.id, { saturation: Number(e.target.value) })
-  }
+  type="color"
+  className="mt-2 mb-3"
+  value={txt.fill}
+  onChange={(e) => updateText(txt.id, { fill: e.target.value })}
 />
 
-<label className="block text-sm mt-2">Blur</label>
-<input
-  type="range"
-  min="0"
-  max="20"
-  step="1"
-  value={img.blur}
-  onChange={(e) => updateImage(img.id, { blur: Number(e.target.value) })}
-/>
-
-<div className="flex items-center gap-2 mt-2">
-  <input
-    type="checkbox"
-    checked={img.grayscale}
-    onChange={(e) => updateImage(img.id, { grayscale: e.target.checked })}
-  />
-  <label>Grayscale</label>
-</div>
-
-<div className="flex items-center gap-2">
-  <input
-    type="checkbox"
-    checked={img.sepia}
-    onChange={(e) => updateImage(img.id, { sepia: e.target.checked })}
-  />
-  <label>Sepia</label>
-</div>
-
+          
         </div>
       )}
     </div>
